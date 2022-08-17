@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Student detail</h1>
+    <table class="table table-striped" th:object="${province}">
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Popular</th>
+            <th>Area</th>
+            <th>GDP</th>
+            <th>Image</th>
+            <th>Country</th>
+
+        </tr>
+        <td th:text="${province.get().getId()}"></td>
+        <td th:text="${province.get().getName()}"></td>
+        <td th:text="${province.get().getPopular()}"></td>
+        <td th:text="${province.get().getArea()}"></td>
+        <td th:text="${province.get().getGdp()}"></td>
+        <td><img width="200px" height="200px" th:src="@{'../image/' + ${province.get().getImageUrl()}}" alt=""/></td>
+        <td th:text="${province.get().getCountry().getName()}"></td>
+        </tr>
+    </table>
+    <button class="btn btn-primary"><a href="/province">Back to home</a></button>
+</div>
+</body>
+</html>
